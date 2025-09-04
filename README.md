@@ -86,3 +86,44 @@ python test_dash_app.py --summary
 ```
 
 The test suite works both with and without Dash dependencies installed, using static code analysis as a fallback when dynamic testing isn't possible.
+
+## Continuous Integration 🔄
+
+The project includes comprehensive CI scripts for automated testing:
+
+### CI Scripts
+
+- **`ci_test.sh`** - Bash script for Unix-like systems (Linux/macOS)
+- **`ci_test.bat`** - Batch script for Windows systems
+- **`.github/workflows/ci.yml`** - GitHub Actions workflow for cloud CI/CD
+- **`test_simple.py`** - Lightweight test suite for CI environments
+- **`Makefile`** - Make commands for easy development workflow
+
+### CI Features
+
+- **Virtual Environment Management**: Automatically creates and activates virtual environments
+- **Dependency Installation**: Installs required packages from requirements.txt
+- **Multi-tier Testing**: Runs simple tests first, then advanced tests if dependencies allow
+- **Robust Error Handling**: Multiple fallback test methods for different environments
+- **Exit Code Management**: Returns 0 for success, 1 for failure (CI/CD compatible)
+- **Cross-platform Support**: Works on Windows, Linux, and macOS
+
+### Running CI Locally
+
+```bash
+# Unix-like systems (Linux/macOS)
+chmod +x ci_test.sh
+./ci_test.sh
+
+# Windows
+ci_test.bat
+
+# Using Make (if available)
+make ci
+
+# Manual steps
+make setup  # Set up environment
+make test   # Run tests
+```
+
+The CI pipeline ensures code quality and functionality before deployment, making it safe to integrate changes into the main branch.
