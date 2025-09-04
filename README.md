@@ -16,6 +16,9 @@ This project analyzes the impact of a price increase on Pink Morsel sales for So
 - `dash_app.py` - Interactive Dash web application with region filtering and custom styling
 - `formatted_data.csv` - Processed sales data (Sales, Date, Region)
 - `test_visualization.py` - Validation script with region-specific analysis
+- `test_dash_app.py` - Comprehensive test suite for the Dash application
+- `run_tests.py` - Test runner script with multiple execution methods
+- `pytest.ini` - Pytest configuration file
 - `requirements.txt` - Python dependencies
 
 ## Setup and Running 🚀
@@ -35,7 +38,14 @@ python process_data.py
 python dash_app.py
 ```
 
-4. Open your browser to `http://127.0.0.1:8050` to view the interactive visualization
+4. Run the test suite (optional but recommended):
+```bash
+python run_tests.py
+# or
+python -m pytest test_dash_app.py -v
+```
+
+5. Open your browser to `http://127.0.0.1:8050` to view the interactive visualization
 
 ## Key Findings 📈
 
@@ -50,3 +60,29 @@ The analysis reveals consistent sales increases across all regions after the Jan
 ## Business Impact 💼
 
 **Answer**: Sales were significantly higher AFTER the Pink Morsel price increase, demonstrating the success of Soul Foods' pricing strategy across all geographic markets.
+
+## Testing 🧪
+
+The project includes a comprehensive test suite that verifies:
+
+- **Header Presence**: Ensures the main title is displayed correctly
+- **Visualization Presence**: Confirms the sales line chart is properly configured
+- **Region Picker Presence**: Validates all region filter options are available
+- **Data Integrity**: Checks that data files exist and have correct structure
+- **App Configuration**: Verifies proper setup of callbacks and layout
+- **Callback Functionality**: Tests that interactive filtering works correctly
+
+### Running Tests
+
+```bash
+# Run all tests with detailed output
+python run_tests.py
+
+# Run with pytest (if dependencies are installed)
+python -m pytest test_dash_app.py -v
+
+# Run individual test summary
+python test_dash_app.py --summary
+```
+
+The test suite works both with and without Dash dependencies installed, using static code analysis as a fallback when dynamic testing isn't possible.
